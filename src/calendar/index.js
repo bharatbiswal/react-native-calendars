@@ -98,6 +98,7 @@ class Calendar extends Component {
 
     this.updateMonth = this.updateMonth.bind(this);
     this.addMonth = this.addMonth.bind(this);
+    this.addYear = this.addYear.bind(this);
     this.pressDay = this.pressDay.bind(this);
     this.longPressDay = this.longPressDay.bind(this);
     this.shouldComponentUpdate = shouldComponentUpdate;
@@ -156,6 +157,10 @@ class Calendar extends Component {
 
   addMonth(count) {
     this.updateMonth(this.state.currentMonth.clone().addMonths(count, true));
+  }
+
+  addYear(count) {
+    this.updateMonth(this.state.currentMonth.clone().addYears(count, true));
   }
 
   renderDay(day, id) {
@@ -317,6 +322,7 @@ class Calendar extends Component {
           hideArrows={this.props.hideArrows}
           month={this.state.currentMonth}
           addMonth={this.addMonth}
+          addYear={this.addYear}
           showIndicator={indicator}
           firstDay={this.props.firstDay}
           renderArrow={this.props.renderArrow}

@@ -66,6 +66,10 @@ class Day extends Component {
       dot = (<View style={dotStyle}/>);
     }
 
+    if(marking.border){
+      containerStyle.push({borderWidth: 3, borderColor: '#b08abb'});
+    }
+
     if (marking.selected) {
       containerStyle.push(this.style.selected);
       if (marking.selectedColor) {

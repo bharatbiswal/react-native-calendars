@@ -7,7 +7,7 @@ export const processingColor = '#ffce5c'; // not in use
 export const failedColor = '#f67e7e'; // not in use
 export const textSecondaryColor = '#7a92a5'; // not in use
 
-export const textDefaultColor = '#2d4150';
+export const textDefaultColor = '#858585';
 export const textColor = '#43515c';
 export const textLinkColor = '#00BBF2';
 
@@ -16,13 +16,13 @@ export const textMonthFontFamily = 'System';
 export const textDayHeaderFontFamily = 'System';
 export const todayButtonFontFamily = 'System';
 
-export const textDayFontWeight = '300';
-export const textMonthFontWeight = '300';
+export const textDayFontWeight = 'bold';
+export const textMonthFontWeight = '500';
 export const textDayHeaderFontWeight = undefined;
 export const todayButtonFontWeight = '600';
 
-export const textDayFontSize = 16;
-export const textMonthFontSize = 16;
+export const textDayFontSize = 20;
+export const textMonthFontSize = 20;
 export const textDayHeaderFontSize = 13;
 export const todayButtonFontSize = 14;
 
@@ -31,7 +31,7 @@ export const dotStyle = undefined;
 export const arrowStyle = undefined;
 
 export const calendarBackground = foregroundColor;
-export const textSectionTitleColor = '#b6c1cd';
+export const textSectionTitleColor = '#858585';
 export const selectedDayBackgroundColor = textLinkColor;
 export const selectedDayTextColor = foregroundColor;
 export const todayBackgroundColor = undefined;
@@ -42,7 +42,7 @@ export const dotColor = textLinkColor;
 export const selectedDotColor = foregroundColor;
 export const disabledDotColor = undefined;
 export const todayDotColor = undefined;
-export const arrowColor = textLinkColor;
+export const arrowColor = '#858585';
 export const disabledArrowColor = '#d9e1e8';
 export const monthTextColor = textDefaultColor;
 export const indicatorColor = undefined; // use the default color of React Native ActivityIndicator

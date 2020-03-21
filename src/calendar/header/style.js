@@ -9,8 +9,8 @@ export default function(theme={}) {
     header: {
       flexDirection: 'row',
       justifyContent: 'space-between',
-      paddingLeft: 10,
-      paddingRight: 10,
+      // paddingLeft: 10,
+      // paddingRight: 10,
       marginTop: 6,
       alignItems: 'center'
     },
@@ -38,7 +38,7 @@ export default function(theme={}) {
     },
     dayHeader: {
       marginTop: 2,
-      marginBottom: 7,
+      // marginBottom: 7,
       width: 32,
       textAlign: 'center',
       fontSize: appStyle.textDayHeaderFontSize,

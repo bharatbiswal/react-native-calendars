@@ -7,8 +7,11 @@ export default function styleConstructor(theme={}) {
   const appStyle = {...defaultStyle, ...theme};
   return StyleSheet.create({
     base: {
-      width: 32,
-      height: 32,
+      width: 58,
+      height: 58,
+      borderWidth: 1,
+      borderColor: '#aaaaaa',
+      justifyContent: 'center',
       alignItems: 'center'
     },
     text: {
@@ -25,11 +28,11 @@ export default function styleConstructor(theme={}) {
     },
     selected: {
       backgroundColor: appStyle.selectedDayBackgroundColor,
-      borderRadius: 16
+      // borderRadius: 16
     },
     today: {
       backgroundColor: appStyle.todayBackgroundColor,
-      borderRadius: 16
+      // borderRadius: 16
     },
     todayText: {
       color: appStyle.todayTextColor

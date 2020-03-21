@@ -16,6 +16,7 @@ class CalendarHeader extends Component {
     hideArrows: PropTypes.bool,
     month: PropTypes.instanceOf(XDate),
     addMonth: PropTypes.func,
+    addyear: PropTypes.func,
     showIndicator: PropTypes.bool,
     firstDay: PropTypes.number,
     renderArrow: PropTypes.func,
@@ -30,6 +31,8 @@ class CalendarHeader extends Component {
 
   static defaultProps = {
     monthFormat: 'MMMM yyyy',
+    yearFormat: 'yyyy',
+    monthOnlyFormat: 'MMMM',
     webAriaLevel: 1
   };
 
@@ -38,6 +41,8 @@ class CalendarHeader extends Component {
     this.style = styleConstructor(props.theme);
     this.addMonth = this.addMonth.bind(this);
     this.substractMonth = this.substractMonth.bind(this);
+    this.addYear = this.addYear.bind(this);
+    this.substractYear = this.substractYear.bind(this);
     this.onPressLeft = this.onPressLeft.bind(this);
     this.onPressRight = this.onPressRight.bind(this);
   }
@@ -48,6 +53,14 @@ class CalendarHeader extends Component {
 
   substractMonth() {
     this.props.addMonth(-1);
+  }
+
+  addYear() {
+    this.props.addYear(1);
+  }
+
+  substractYear() {
+    this.props.addYear(-1);
   }
 
   shouldComponentUpdate(nextProps) {
@@ -100,6 +113,8 @@ class CalendarHeader extends Component {
   render() {
     let leftArrow = <View/>;
     let rightArrow = <View/>;
+    let leftArrowYear = <View/>;
+    let rightArrowYear = <View/>;
     let weekDaysNames = weekDayNames(this.props.firstDay);
     const {testID} = this.props;
 
@@ -136,6 +151,38 @@ class CalendarHeader extends Component {
             />}
         </TouchableOpacity>
       );
+      leftArrowYear = (
+        <TouchableOpacity
+          onPress={this.substractYear}
+          disabled={this.props.disableArrowLeft}
+          style={this.style.arrow}
+          hitSlop={{left: 20, right: 20, top: 20, bottom: 20}}
+          testID={testID ? `${CHANGE_MONTH_LEFT_ARROW}-${testID}`: CHANGE_MONTH_LEFT_ARROW}
+        >
+          {this.props.renderArrow
+            ? this.props.renderArrow('left')
+            : <Image
+              source={require('../img/previous.png')}
+              style={this.props.disableArrowLeft ? this.style.disabledArrowImage : this.style.arrowImage}
+            />}
+        </TouchableOpacity>
+      );
+      rightArrowYear = (
+        <TouchableOpacity
+          onPress={this.addYear}
+          disabled={this.props.disableArrowRight}
+          style={this.style.arrow}
+          hitSlop={{left: 20, right: 20, top: 20, bottom: 20}}
+          testID={testID ? `${CHANGE_MONTH_RIGHT_ARROW}-${testID}`: CHANGE_MONTH_RIGHT_ARROW}
+        >
+          {this.props.renderArrow
+            ? this.props.renderArrow('right')
+            : <Image
+              source={require('../img/next.png')}
+              style={this.props.disableArrowRight ? this.style.disabledArrowImage : this.style.arrowImage}
+            />}
+        </TouchableOpacity>
+      );
     }
 
     let indicator;
@@ -159,6 +206,18 @@ class CalendarHeader extends Component {
         importantForAccessibility={this.props.importantForAccessibility} // Android
       >
         <View style={this.style.header}>
+          {leftArrowYear}
+            <View style={{flexDirection: 'row'}}>
+              <Text
+                allowFontScaling={false}
+                style={this.style.monthText}
+                {...webProps}
+              >
+                {this.props.month.toString(this.props.yearFormat)}
+              </Text>
+              {indicator}
+            </View>
+            {rightArrowYear}
           {leftArrow}
           <View style={{flexDirection: 'row'}}>
             <Text
@@ -187,7 +246,7 @@ class CalendarHeader extends Component {
                 // accessible={false} // not working
                 // importantForAccessibility='no'
               >
-                {day}
+                {day.toUpperCase()}
               </Text>
             ))}
           </View>

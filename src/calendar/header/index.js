@@ -16,7 +16,6 @@ class CalendarHeader extends Component {
     hideArrows: PropTypes.bool,
     month: PropTypes.instanceOf(XDate),
     addMonth: PropTypes.func,
-    addyear: PropTypes.func,
     showIndicator: PropTypes.bool,
     firstDay: PropTypes.number,
     renderArrow: PropTypes.func,
@@ -56,11 +55,11 @@ class CalendarHeader extends Component {
   }
 
   addYear() {
-    this.props.addYear(1);
+    this.props.addMonth(12);
   }
 
   substractYear() {
-    this.props.addYear(-1);
+    this.props.addMonth(-12);
   }
 
   shouldComponentUpdate(nextProps) {
@@ -207,17 +206,18 @@ class CalendarHeader extends Component {
       >
         <View style={this.style.header}>
           {leftArrowYear}
-            <View style={{flexDirection: 'row'}}>
-              <Text
-                allowFontScaling={false}
-                style={this.style.monthText}
-                {...webProps}
-              >
-                {this.props.month.toString(this.props.yearFormat)}
-              </Text>
-              {indicator}
-            </View>
-            {rightArrowYear}
+          <View style={{flexDirection: 'row'}}>
+            <Text
+              allowFontScaling={false}
+              style={this.style.monthText}
+              {...webProps}
+            >
+              {this.props.month.toString(this.props.yearFormat)}
+            </Text>
+            {indicator}
+          </View>
+          {rightArrowYear}
+          <Text>                    </Text>
           {leftArrow}
           <View style={{flexDirection: 'row'}}>
             <Text

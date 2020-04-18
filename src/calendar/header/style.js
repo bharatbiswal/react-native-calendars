@@ -11,7 +11,7 @@ export default function(theme={}) {
       justifyContent: 'space-between',
       // paddingLeft: 10,
       // paddingRight: 10,
-      marginTop: 10,
+      marginTop: 15,
       paddingHorizontal: 10,
       alignItems: 'center'
     },

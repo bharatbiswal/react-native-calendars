@@ -11,7 +11,8 @@ export default function(theme={}) {
       justifyContent: 'space-between',
       // paddingLeft: 10,
       // paddingRight: 10,
-      marginTop: 6,
+      marginTop: 10,
+      paddingHorizontal: 10,
       alignItems: 'center'
     },
     monthText: {
@@ -19,10 +20,10 @@ export default function(theme={}) {
       fontFamily: appStyle.textMonthFontFamily,
       fontWeight: appStyle.textMonthFontWeight,
       color: appStyle.monthTextColor,
-      margin: 10
+      // margin: 10
     },
     arrow: {
-      padding: 10,
+      padding: 5,
       ...appStyle.arrowStyle
     },
     arrowImage: {

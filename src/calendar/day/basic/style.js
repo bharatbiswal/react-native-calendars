@@ -7,8 +7,10 @@ export default function styleConstructor(theme={}) {
   const appStyle = {...defaultStyle, ...theme};
   return StyleSheet.create({
     base: {
-      width: 58,
-      height: 58,
+      // width: 58,
+      // height: 58,
+      alignSelf: 'stretch',
+      aspectRatio: 1,
       borderWidth: 1,
       borderColor: '#aaaaaa',
       justifyContent: 'center',

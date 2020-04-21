@@ -14,13 +14,7 @@ export default function(theme={}) {
       marginTop: 15,
       paddingHorizontal: 10,
       alignItems: 'center',
-      ...Platform.select({
-        ios: {
-            
-        },
-        android: {
-            alignSelf: 'center'
-        },
+      alignSelf: Platform.OS === 'android' ? 'center' : null
     },
     monthText: {
       fontSize: appStyle.textMonthFontSize,

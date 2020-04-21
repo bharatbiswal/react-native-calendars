@@ -13,7 +13,14 @@ export default function(theme={}) {
       // paddingRight: 10,
       marginTop: 15,
       paddingHorizontal: 10,
-      alignItems: 'center'
+      alignItems: 'center',
+      ...Platform.select({
+        ios: {
+            
+        },
+        android: {
+            alignSelf: 'center'
+        },
     },
     monthText: {
       fontSize: appStyle.textMonthFontSize,
@@ -23,7 +30,7 @@ export default function(theme={}) {
       // margin: 10
     },
     arrow: {
-      padding: 5,
+      // padding: 5,
       ...appStyle.arrowStyle
     },
     arrowImage: {

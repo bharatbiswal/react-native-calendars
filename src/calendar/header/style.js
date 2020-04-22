@@ -14,17 +14,15 @@ export default function(theme={}) {
       marginTop: 15,
       paddingHorizontal: 10,
       alignItems: 'center',
-      alignSelf: Platform.OS === 'android' ? 'center' : null
     },
     monthText: {
       fontSize: appStyle.textMonthFontSize,
       fontFamily: appStyle.textMonthFontFamily,
       fontWeight: appStyle.textMonthFontWeight,
       color: appStyle.monthTextColor,
-      // margin: 10
+      marginHorizontal: 10
     },
     arrow: {
-      // padding: 5,
       ...appStyle.arrowStyle
     },
     arrowImage: {

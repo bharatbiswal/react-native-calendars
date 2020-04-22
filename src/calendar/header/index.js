@@ -205,31 +205,34 @@ class CalendarHeader extends Component {
         importantForAccessibility={this.props.importantForAccessibility} // Android
       >
         <View style={this.style.header}>
-          {leftArrowYear}
-          <View style={{flexDirection: 'row'}}>
-            <Text
-              allowFontScaling={false}
-              style={this.style.monthText}
-              {...webProps}
-            >
-              {this.props.month.toString(this.props.yearFormat)}
-            </Text>
-            {indicator}
+          <View style={{flexDirection: 'row', alignItems: 'center'}}>
+            {leftArrowYear}
+            <View style={{flexDirection: 'row'}}>
+              <Text
+                allowFontScaling={false}
+                style={this.style.monthText}
+                {...webProps}
+              >
+                {this.props.month.toString(this.props.yearFormat)}
+              </Text>
+              {indicator}
+            </View>
+            {rightArrowYear}
           </View>
-          {rightArrowYear}
-          <Text>                    </Text>
-          {leftArrow}
-          <View style={{flexDirection: 'row'}}>
-            <Text
-              allowFontScaling={false}
-              style={this.style.monthText}
-              {...webProps}
-            >
-              {this.props.month.toString(this.props.monthFormat)}
-            </Text>
-            {indicator}
+          <View style={{flexDirection: 'row', alignItems: 'center'}}>
+            {leftArrow}
+            <View style={{flexDirection: 'row'}}>
+              <Text
+                allowFontScaling={false}
+                style={this.style.monthText}
+                {...webProps}
+              >
+                {this.props.month.toString(this.props.monthOnlyFormat)}
+              </Text>
+              {indicator}
+            </View>
+            {rightArrow}
           </View>
-          {rightArrow}
         </View>
         {!this.props.hideDayNames &&
           <View style={this.style.week}>
